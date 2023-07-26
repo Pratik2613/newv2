@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>app by pratik </title>
+ <style>
+    *{font-size: 55px;}
+    body { background-image : url("img1.jpg");}
+       h1{ color:white;}
+</style>
+<script>
+         function show()
+      {   
+               event.preventDefault();
+               let name= document.getElementById("name");
+               let job = document.getElementById("job");
+               let ms = document.getElementById("ms");
+               let mba = document.getElementById("mba");
+               let ans = document.getElementById("ans");
+
+              if (name.value == "")
+               {
+                                 alert("input is empty");
+                                 ans.innerHTML = " ";
+                                 name.focus();
+                                 return;
+             }
+            
+            else if (name.value.trim() == "")
+               {
+                                 alert("No spaces");
+                                 ans.innerHTML = " ";
+                                 name.focus();
+                                 return;
+             }
+
+           else if (!name.value.match(/^[A-Za-z  ]+$/))
+               {
+                                 alert("Only alphabets");
+                                 ans.innerHTML = " ";
+	                  name.value ="";
+                                 name.focus();
+                                 return;
+             }
+             
+ 
+          let choice = " ";                    
+          if (job.checked)                 choice = "Job";
+         else if (ms.checked)            choice = "MS";
+         else                                    choice="MBA"
+        
+        let msg = "name = "  + name.value  +  "choice =  " + choice ;
+        ans.innerHTML = msg; 
+           }
+   </script>
+</head>
+
+<body>
+<center>
+              <h1> what next </h1>
+              <form onsubmit = "show()">
+                              <input type = "text" placeholder="Enter ur name " id="name"/>
+                              <br><br>
+                             <input type ="radio"  name="c" Id = "job" checked=true/> Job
+                             <input type ="radio"  name="c" Id = "ms" checked=true/> MS
+                             <input type ="radio"  name="c" Id = "mba" checked=true/> MBA
+                             <br><br>
+ 		<input type = "submit"/>
+</form>
+ <h1 id ="ans" />
+</center>
+</body>
+</html>
